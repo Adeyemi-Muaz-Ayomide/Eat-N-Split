@@ -47,7 +47,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
   text-align: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .button:hover {
