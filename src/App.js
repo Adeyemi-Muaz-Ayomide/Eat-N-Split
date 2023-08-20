@@ -26,9 +26,11 @@ import FriendList from "./components/FriendList";
 const App = () => {
   return (
     <div className="app">
-      <FriendList />
-      <AddFriend />
-      <BillSplit />
+      <div className="sidebar">
+        <FriendList />
+        <AddFriend />
+        <BillSplit />
+      </div>
     </div>
   );
 };
