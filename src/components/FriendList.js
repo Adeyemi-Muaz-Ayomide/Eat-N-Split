@@ -19,18 +19,13 @@
 //   },
 // ];
 
-import AddFriend from "./components/AddFriend";
-import BillSplit from "./components/BillSplit";
-import FriendList from "./components/FriendList";
 
-const App = () => {
+const FriendList = () => {
   return (
-    <div className="app">
-      <FriendList />
-      <AddFriend />
-      <BillSplit />
-    </div>
-  );
-};
+    <div>
 
-export default App;
+    </div>
+  )
+}
+
+export default FriendList
