@@ -22,7 +22,7 @@ const Friend = ({ friend }) => {
           {friend.name} owes you ${Math.abs(friend.balance)}
         </p>
       )}
-      {friend.balance == 0 && (
+      {friend.balance === 0 && (
         <p>
           You and {friend.name} are even
         </p>

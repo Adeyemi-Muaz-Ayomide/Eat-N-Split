@@ -61,6 +61,7 @@ body {
   gap: 0.4rem;
   font-size: 1.4rem;
   margin-bottom: 2rem;
+  padding: 1.2rem;
 }
 
 .sidebar li {
@@ -131,6 +132,7 @@ form {
 .form-split-bill {
   grid-template-columns: 1fr 12rem;
   padding: 3.2rem 4rem;
+  margin-left: 50px;
 }
 
 label {

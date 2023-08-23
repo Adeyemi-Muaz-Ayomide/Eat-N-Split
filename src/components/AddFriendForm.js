@@ -18,7 +18,7 @@ const AddFriendForm = ({ onAddFriend }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-add-friend">
       <label>🧑‍🤝‍🧑Friend name</label>
       <input
         type="text" //Url
