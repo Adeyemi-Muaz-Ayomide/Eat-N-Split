@@ -3,18 +3,19 @@ import Button from "./Button";
 
 const AddFriendForm = ({ onAddFriend }) => {
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState("https://i.pravatar.cc/48");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!name || !image) return;
-    const newFriends = { name, image };
-    console.log(newFriends);
+
+    const id = crypto.randomUUID();
+    const newFriends = { name, image: `${image}?=${id}`, balance: 0, id };
     onAddFriend(newFriends);
 
-    setName('')
-    setImage('')
+    setName("");
+    setImage("https://i.pravatar.cc/48");
   };
 
   return (
