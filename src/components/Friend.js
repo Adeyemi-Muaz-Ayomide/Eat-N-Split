@@ -1,14 +1,9 @@
-import { useState } from "react";
 import Button from "./Button";
 
-const Friend = ({ friend }) => {
-  const [showSplitBill, setShowSplitBill] = useState(false);
-
-  const handleShowSplitBill = () => {
-    setShowSplitBill((prev) => !prev);
-  };
+const Friend = ({ friend, onSelection, selectedFriend }) => {
+  const isSelected = selectedFriend?.id === friend.id;
   return (
-    <li>
+    <li className={isSelected ? "selected" : ""}>
       <img src={friend.image} alt={friend.name} />
       <h3>{friend.name}</h3>
 
@@ -22,14 +17,10 @@ const Friend = ({ friend }) => {
           {friend.name} owes you ${Math.abs(friend.balance)}
         </p>
       )}
-      {friend.balance === 0 && (
-        <p>
-          You and {friend.name} are even
-        </p>
-      )}
+      {friend.balance === 0 && <p>You and {friend.name} are even</p>}
 
-      <Button onClick={handleShowSplitBill}>
-        {showSplitBill ? "close" : "select"}
+      <Button onClick={() => onSelection(friend)}>
+        {isSelected ? "close" : "select"}
       </Button>
     </li>
   );
