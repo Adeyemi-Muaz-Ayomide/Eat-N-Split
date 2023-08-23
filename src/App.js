@@ -1,9 +1,8 @@
 import { useState } from "react";
-import AddFriend from "./components/AddFriend";
-import BillSplit from "./components/BillSplit";
+import AddFriendForm from "./components/AddFriendForm";
 import FriendList from "./components/FriendList";
 import Button from "./components/Button";
-
+import SplitBill from "./components/SplitBill";
 const initialFriends = [
   {
     id: 118836,
@@ -26,45 +25,32 @@ const initialFriends = [
 ];
 
 const App = () => {
-  const [friendsList, setFriendsList] = useState(initialFriends);
+  const [friends, setFriends] = useState(initialFriends);
   const [showForm, setShowForm] = useState(false);
-  const [selectedFriend, setSelectedFriend] = useState(false);
+  // const [showSplitBill, setShowSplitBill] = useState(false);
+
+  const handleAddFriend = (friend) => {
+    setFriends((prevFriend) => [...prevFriend, friend]);
+  };
 
   const handleShowForm = () => {
-    setShowForm((show) => !show);
+    setShowForm((prev) => !prev);
   };
 
-  const handleSelected = () => {
-    setSelectedFriend(true);
-  };
-  const addFriendToList = (friendInput) => {
-    setFriendsList((prevFriend) => [...prevFriend, friendInput]);
-  };
-
-  const handleSplittedBill = (bill) => {
-    console.log(bill);
-  };
   return (
     <div className="app">
       <div className="sidebar">
         <FriendList
-          friends={friendsList}
-          onShowForm={handleShowForm}
-          onSelectFriend={handleSelected}
-          // onHandleBill={handleSplittedBill}
+          friends={friends}
+          // showBill={showSplitBill}
+          // onShowBill={handleShowSplitBill}
         />
-        {showForm && <AddFriend onAddFriend={addFriendToList} />}
+        {showForm && <AddFriendForm onAddFriend={handleAddFriend} />}
         <Button onClick={handleShowForm}>
-          {showForm ? "Close" : "Add friend"}
+          {showForm ? "close" : "Add Friend"}
         </Button>
-        
-        {selectedFriend && (
-          <BillSplit
-            selectedFriend={friendsList}
-            onSplitBill={handleSplittedBill}
-          />
-        )}
       </div>
+       <SplitBill friends={friends}/>
     </div>
   );
 };
