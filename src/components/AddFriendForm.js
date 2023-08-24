@@ -12,6 +12,7 @@ const AddFriendForm = ({ onAddFriend }) => {
 
     const id = crypto.randomUUID();
     const newFriends = { name, image: `${image}?=${id}`, balance: 0, id };
+
     onAddFriend(newFriends);
 
     setName("");
@@ -20,7 +21,7 @@ const AddFriendForm = ({ onAddFriend }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form-add-friend">
-      <label>🧑‍🤝‍🧑Friend name</label>
+      <label>🧑‍🤝‍🧑 Friend name</label>
       <input
         type="text" //Url
         value={name}
